@@ -285,6 +285,7 @@ function schoolStudentBodyDisplayTemplate(studentLifeSubsection) {
         ${schoolPercentPartTime}
         </div>
       </div>
+      <!-- 
       <div class="column__row">
         <div class="view__item view__item-title view__item-title_alt">Retention Rate:</div>
         <div class="view__item view__item-content view__item-content_alt">xx%</div>
@@ -302,6 +303,7 @@ function schoolStudentBodyDisplayTemplate(studentLifeSubsection) {
         <div class="view__item view__item-content view__item-content_alt">No</div>
       </div>
     </div>
+    -->
     <div class="view__column view__column-section">
       <div class="column__row">
         <div class="view__item view__item-title view__item-title_header">Demographics:</div>
@@ -578,6 +580,7 @@ const queryFields = {
   ],
   schoolAcademics: [
     "school.accreditor",
+    "school.online_only",
     "latest.admissions.admission_rate.overall",
     "latest.admissions.sat_scores.average.overall",
     "latest.admissions.act_scores.midpoint.cumulative",
@@ -1091,7 +1094,7 @@ function handleSubsectionData(subsectionResponse, query) {
   if (query === "schoolAcademics") {
     const {
       "school.accreditor": schoolAccreditor,
-      "school.online_only": schoolOnlineOnly,
+      "school.online_only": onlineOnly,
       "latest.admissions.admission_rate.overall": schoolAdmission,
       "latest.admissions.sat_scores.average.overall": schoolAverageSAT,
       "latest.admissions.act_scores.midpoint.cumulative": schoolAverageACT,
@@ -1111,6 +1114,8 @@ function handleSubsectionData(subsectionResponse, query) {
     const schoolTransferRate = formatPercentages(schoolTransfer);
     const schoolAdmissionRate = formatPercentages(schoolAdmission);
     /* ---    --- */
+
+    const schoolOnlineOnly = onlineOnly === 0 ? "No" : "Yes";
 
     return {
       schoolAdmissionRate,
