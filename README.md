@@ -1,5 +1,7 @@
 Working version of a basic app that returns a variety of information about colleges and universities in the United States. In its current state colleges can be searched by a single city at a time.
 
+GitHub Pages Link: https://dscrane.github.io/collegeScorecard-working/
+
 In the future a more robust experience will be added including (but not limited to):
   [] multi city searching
   [] search the surrounding area (radius of n miles)
